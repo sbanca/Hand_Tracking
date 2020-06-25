@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/3D Terrain.unity
+    path: Assets/Scenes/3D Terrain _ new.unity
     guid: 95da32f4fbbb22148bdc33f18ff7278f
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 614e35427445968498ae13a0929c80ce,

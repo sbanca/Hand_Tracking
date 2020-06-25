@@ -34,21 +34,21 @@ public class GestureDetector : MonoBehaviour
     void Update()
     {
 
-        if (debugMode)
-        {
-            save();
-        }
+        //if (debugMode)
+        //{
+        //    save();
+        //}
 
-        Gesture currentGesture = Recognise();
-        bool hasRecognised = !currentGesture.Equals(new Gesture());
-        // Check if new gesture 
-        if (hasRecognised && !currentGesture.Equals(previousGesture))
-        {
-            // new gesture 
-            Debug.Log("New gesture found : " + currentGesture.name);
-            previousGesture = currentGesture;
-            currentGesture.onRecognised.Invoke();
-        }
+        //Gesture currentGesture = Recognise();
+        //bool hasRecognised = !currentGesture.Equals(new Gesture());
+        //// Check if new gesture 
+        //if (hasRecognised && !currentGesture.Equals(previousGesture))
+        //{
+        //    // new gesture 
+        //    Debug.Log("New gesture found : " + currentGesture.name);
+        //    previousGesture = currentGesture;
+        //    currentGesture.onRecognised.Invoke();
+        //}
 
     }
 
@@ -79,33 +79,33 @@ public class GestureDetector : MonoBehaviour
 
     }
 
-    Gesture Recognise()
-    {
-        Gesture currentGest = new Gesture();
-        float currentMin = Mathf.Infinity;
-        foreach (var gesture in gestures)
-        {
-            float sumDistance = 0;
-            bool isDiscarded = false;
+    //Gesture Recognise()
+    //{
+    //    Gesture currentGest = new Gesture();
+    //    float currentMin = Mathf.Infinity;
+    //    foreach (var gesture in gestures)
+    //    {
+    //        float sumDistance = 0;
+    //        bool isDiscarded = false;
 
-            for (int i = 0; i < fingerBones.Count; i++)
-            {
-                Vector3 currentData = skeleton.transform.InverseTransformPoint(fingerBones[i].Transform.position);
-                float distance = Vector3.Distance(currentData, gesture.fingerDatas[i]);
-                if (distance > threshold)
-                {
-                    isDiscarded = true;
-                    break;
-                }
-                sumDistance += distance;
-            }
-            if (!isDiscarded && sumDistance < currentMin)
-            {
-                currentMin = sumDistance;
-                currentGest = gesture;
-            }
-        }
-        return currentGest;
-    }
+    //        for (int i = 0; i < fingerBones.Count; i++)
+    //        {
+    //            Vector3 currentData = skeleton.transform.InverseTransformPoint(fingerBones[i].Transform.position);
+    //            float distance = Vector3.Distance(currentData, gesture.fingerDatas[i]);
+    //            if (distance > threshold)
+    //            {
+    //                isDiscarded = true;
+    //                break;
+    //            }
+    //            sumDistance += distance;
+    //        }
+    //        if (!isDiscarded && sumDistance < currentMin)
+    //        {
+    //            currentMin = sumDistance;
+    //            currentGest = gesture;
+    //        }
+    //    }
+    //    return currentGest;
+    //}
 
 }
